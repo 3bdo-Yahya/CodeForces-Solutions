@@ -6,7 +6,7 @@ int main() {
 
     while (tc--) {
         int n, m; string s; cin >> n >> m >> s; s = ' ' + s;
-    
+
         int pre_sum[n + 1] = {}, pre_max[n + 1] = {}, pre_min[n + 1] = {}, suf_min[n + 2] = {}, suf_max[n + 2] = {};
 
         for (int i = 1; i <= n; i++) {
@@ -22,13 +22,50 @@ int main() {
 
         while(m--) {
             int l, r; cin >> l >> r; --l; ++r;
-            // # of unique values here ==> max - min + 1
+
             cout << max(pre_max[l], pre_sum[l] + suf_max[r]) - min(pre_min[l], pre_sum[l] + suf_min[r]) + 1 << '\n';
         }
-    }
+}
+
+    // while (tc--) {
+    //     int n, q; string s; cin >> n >> q >> s;
+    
+    //     int pre[n + 1] = {}, premx[n + 1] = {}, premn[n + 1] = {}, sufmn[n + 1] = {}, sufmx[n + 1] = {};
+
+    //     for (int i = 0; i  < n; i++) s[i] == '+' ? pre[i + 1]++ : pre[i + 1]--;
+    //     for (int i = 1; i <= n; i++) pre[i] += pre[i - 1];
+
+    //     for (int i = 1; i <= n; i++)
+    //     {
+    //         premx[i] = premn[i] = pre[i];
+    //         premx[i] = max(premx[i], premx[i - 1]);
+    //         premn[i] = min(premn[i], premn[i - 1]);
+    //     }
+
+    //     sufmx[n] = sufmn[n] = pre[n];
+    //     for (int i = n - 1; i >= 1; i--)
+    //     {
+    //         sufmn[i] = sufmx[i] = pre[i];
+    //         sufmx[i] = max(sufmx[i], sufmx[i + 1]);
+    //         sufmn[i] = min(sufmn[i], sufmn[i + 1]);
+    //     }
+
+    //     while (q--)
+    //     {
+    //         int l, r; cin >> l >> r;
+    //         int mx = premx[l - 1], mn = premn[l - 1];
+    //         if (r != n)
+    //         {
+    //             mx = max(mx, sufmx[r + 1] - (pre[r] - pre[l - 1]));
+    //             mn = min(mn, sufmn[r + 1] - (pre[r] - pre[l - 1]));
+    //         }
+    //         cout << mx - mn + 1 << '\n';
+    //     }
+    // }
 
     return 0;
 }
+
 
 /*
 .cph file
