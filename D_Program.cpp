@@ -6,7 +6,7 @@ int main() {
 
     while (tc--) {
         int n, m; string s; cin >> n >> m >> s; s = ' ' + s;
-
+    
         int pre_sum[n + 1] = {}, pre_max[n + 1] = {}, pre_min[n + 1] = {}, suf_min[n + 2] = {}, suf_max[n + 2] = {};
 
         for (int i = 1; i <= n; i++) {
@@ -22,10 +22,10 @@ int main() {
 
         while(m--) {
             int l, r; cin >> l >> r; --l; ++r;
-
+            // # of unique values here ==> max - min + 1
             cout << max(pre_max[l], pre_sum[l] + suf_max[r]) - min(pre_min[l], pre_sum[l] + suf_min[r]) + 1 << '\n';
         }
-}
+    }
 
     // while (tc--) {
     //     int n, q; string s; cin >> n >> q >> s;
@@ -63,9 +63,9 @@ int main() {
     //     }
     // }
 
+
     return 0;
 }
-
 
 /*
 .cph file
