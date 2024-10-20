@@ -20,6 +20,9 @@ signed main() {
     return 0;
 }
 
+// Time:  O(n log n + q)
+// Space: O(n)
+
 /*
 .cph file
 {
